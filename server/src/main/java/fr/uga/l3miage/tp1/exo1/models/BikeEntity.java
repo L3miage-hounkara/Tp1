@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -24,12 +26,14 @@ public class BikeEntity {
     private LocalDate ciruculationDate;
 
     @Column(name = "cylinder_number",length = 255)
-    private String cylindNumber;
+    @Enumerated(EnumType.STRING)
+    private String cylinderNumber;
 
     @Column(name = "have_shifter")
     private boolean haveShifter;
 
     @Column(name = "shifter_type")
+    @Enumerated(EnumType.ORDINAL)
     private Integer shifterType;
 
 }
