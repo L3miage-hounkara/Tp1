@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="ul3-miage---bdd--tp1---exo1u"><u>L3 Miage - BDD -TP1 - EXO1</u></h1>
+<ul>
+<li>Pour pouvoir démarrer tous les TP de manière simple, assurez-vous que vous avez tous les prérequis :
+<ul>
+<li>voir les <a href="prerequis.md">prérequis</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="pour-commencer">Pour commencer</h1>
+<ul>
+<li>Forker ce projet sur GitHub</li>
+</ul>
+<h1 id="pour-les-rendus">Pour les rendus</h1>
+<ul>
+<li>Faire un fichier <code>cr.md</code> afin de répondre aux questions s'il y en a.</li>
+<li>Faire un commit de vos modifications directement sur la branche de l'exercice</li>
+</ul>
+<h1 id="objectif-de-lexercice">Objectif de l'exercice :</h1>
+<p>Dans cet exercice, vous allez devoir apprendre à :</p>
+<ul>
+<li>mapper des tables existantes en entity JPA</li>
+<li>générer des tables grâce à la déclaration des entity JPA</li>
+</ul>
+<h2 id="1-d%C3%A9finition-dune-entity-avec-une-table-d%C3%A9j%C3%A0-existante">1 Définition d'une entity avec une table déjà existante</h2>
+<p><img src="file:///mnt/c/Users/kanikisenci/Desktop/miage/l3_miage/BaseDon/sprinig_boots/Tp1/doc/exo1/pictures/car_entity.png" alt="car entity"></p>
+<h3 id="11-table--entity">1.1 <code>@Table</code> &amp; <code>@Entity</code></h3>
+<p>Dans un premier temps, nous allons déclarer la classe correspondante :</p>
+<ul>
+<li>Dans le package <code>fr.uga.l3miage.tp1.exo1.models</code> nous allons déclarer une nouvelle classe <code>CarEntity</code></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CarEntity</span> </span>{
+}
+</div></code></pre>
+<ul>
+<li>Nous allons ensuite utiliser les annotations disponibles de JPA afin de correspondre au modèle ci-dessus :
+<ul>
+<li>
+<p>Nous allons rajouter l'annotation à la classe</p>
+<pre class="hljs"><code><div>    <span class="hljs-meta">@Entity</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CarEntity</span></span>{}
+</div></code></pre>
+<p>afin d'indiquer que cette classe correspond à une table dans la base de données.</p>
+</li>
+<li>
+<p>Nous allons ensuite ajouter l'annotation à la classe</p>
+<pre class="hljs"><code><div><span class="hljs-meta">@Entity</span>
+<span class="hljs-meta">@Table</span>(name=<span class="hljs-string">"car_porshe"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CarEntity</span></span>{}
+</div></code></pre>
+<p>pour indiquer que l'entité que nous sommes en train de définir correspond à la table <code>car_porshe</code> en base de
+données.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-id">1.2 <code>@Id</code></h3>
+<p>À ce stade du TP, votre éditeur de code devraiT vous signaler un problème sur l'entité <code>CarEntity</code>.
+En effet, si l'on regarde sur le modèle (<a href="#1-d%C3%A9finition-dune-entity-avec-une-table-d%C3%A9j%C3%A0-existante">carEntity</a>) l'attribut <code>immat</code> correspond à la clé primaire (PK).</p>
+<h3 id="12-column">1.2 <code>@Column</code></h3>
+<p>L'annotation <code>@Column</code> permet de définir à quels champs de la table en base de données correspondent les attributs de la classe.
+Elle sert également à préciser certaines informations sur la colonne elle-même (sa taille, son format, etc.)</p>
+<p>Si on reprend la définition de notre classe <code>CarEntity</code> nous devons déclarer petit-à-petit les attributs de notre
+classe :</p>
+<ul>
+<li>
+<p>pour l'attribut <code>immat</code> :</p>
+<pre class="hljs"><code><div>  <span class="hljs-meta">@Entity</span>
+  <span class="hljs-meta">@Table</span>(name=<span class="hljs-string">"car_porshe"</span>)
+  <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CarEntity</span></span>{
+      <span class="hljs-meta">@Column</span>(name = <span class="hljs-string">"immat"</span>,length = <span class="hljs-number">8</span>)
+      <span class="hljs-keyword">private</span> String immatriculation;
+  }
+</div></code></pre>
+<p>Ici, nous précisons que l'attribut <code>immatriculation</code> de la classe <code>CarEntity</code> correspond à la colonne <code>immat</code> en base de
+données.</p>
+<p>De plus nous donnons l'indication que la taille de cet attribut ne peux pas excéder 8 grâce au <p style="color:green">
+length=8</p></p>
+</li>
+<li>
+<p>pour l'attribut <code>cylinderCapacity</code> :
+Comme pour l'attribut <code>immat</code>, nous ajoutons l'attribut avec l'annotation <code>@Column</code></p>
+<pre class="hljs"><code><div>  <span class="hljs-meta">@Entity</span>
+  <span class="hljs-meta">@Table</span>(name=<span class="hljs-string">"car_porshe"</span>)
+  <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CarEntity</span></span>{
+      <span class="hljs-comment">//Before</span>
+      <span class="hljs-meta">@Column</span>(name = <span class="hljs-string">"cylinder_capacity"</span>)
+      <span class="hljs-keyword">private</span> Double cylinderCapacity;
+      <span class="hljs-comment">//After</span>
+  }
+</div></code></pre>
+</li>
+<li>
+<p>Nous allons ensuite répéter le processus petit-à-petit pour tous les attributs :</p>
+<ul>
+<li><code>weight</code>
+<ul>
+<li>
+<pre class="hljs"><code><div>  <span class="hljs-meta">@Column</span>(name = <span class="hljs-string">"weight"</span>)
+  <span class="hljs-keyword">private</span> Integer weight;
+</div></code></pre>
+</li>
+</ul>
+</li>
+<li><code>torque</code>
+<ul>
+<li>
+<pre class="hljs"><code><div><span class="hljs-meta">@Column</span>(name = <span class="hljs-string">"torque"</span>)
+<span class="hljs-keyword">private</span> Integer torque;
+</div></code></pre>
+</li>
+</ul>
+</li>
+<li><code>power</code>
+<ul>
+<li>
+<pre class="hljs"><code><div>  <span class="hljs-meta">@Column</span>(name =<span class="hljs-string">"power"</span>)
+  <span class="hljs-keyword">private</span> Integer power;
+</div></code></pre>
+</li>
+</ul>
+</li>
+<li><code>circulationDate</code>
+<ul>
+<li>
+<pre class="hljs"><code><div><span class="hljs-meta">@Column</span>(name= <span class="hljs-string">"circulation_date"</span>)
+<span class="hljs-keyword">private</span> LocalDate circulationDate;
+</div></code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="13-les-types-enum">1.3 Les types <code>Enum</code></h3>
+<p>Dans l'entité CarEntity, il y a 2 enum :</p>
+<ul>
+<li><code>PowerType</code></li>
+<li><code>WeightType</code></li>
+</ul>
+<p>Elles sont représentées de la manière suivante en BD :</p>
+<ul>
+<li><code>PowerType</code> est un entier (<code>integer</code>)
+<img src="file:///mnt/c/Users/kanikisenci/Desktop/miage/l3_miage/BaseDon/sprinig_boots/Tp1" alt="powerType"></li>
+<li><code>WeightType</code> est une chaine de caractères (<code>varchar(255)</code>)
+<img src="file:///mnt/c/Users/kanikisenci/Desktop/miage/l3_miage/BaseDon/sprinig_boots/Tp1" alt="weightType"></li>
+</ul>
+<p>Ainsi, on se rend compte que la gestion d'une enum est particulière en JPA !</p>
+<h4 id="131-d%C3%A9claration-des-types-enum">1.3.1 Déclaration des types enum</h4>
+<p>Avant toutes choses, déclarons les 2 types enum dans le package <code>fr.uga.l3miage.tp1.exo1.enums</code>
+de cette manière :</p>
+<ul>
+<li><code>PowerType</code><pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> PowerType {
+    CH, <span class="hljs-comment">// type en chevaux</span>
+    CHF <span class="hljs-comment">// type en chevaux fiscaux</span>
+}
+</div></code></pre>
+</li>
+<li><code>WeightRange</code><pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> WeightUnity {
+    KG, <span class="hljs-comment">// unité en européen</span>
+    POUND, <span class="hljs-comment">// unité anglaise</span>
+    LIVRE <span class="hljs-comment">// unité anglaise</span>
+}
+</div></code></pre>
+</li>
+</ul>
+<h4 id="132-enumerated">1.3.2 @Enumerated</h4>
+<p>L'annotation <code>@Enumerated</code> indique à JPA que l'attribut qui contient cette annotation est un type énuméré.
+Cette annotation attend 1 argument <code>EnumType</code> qui correspond à comment gérer l'enum en base de données :</p>
+<ul>
+<li><code>EnumType.ORDINAL</code>: donne l'indication de représenter l'enum par un entier (integer) dans la base de données</li>
+<li><code>EnumType.STRING</code>: donne l'indication de représenter l'enum par une chaine de caractères (string) dans la base de données</li>
+</ul>
+<h4 id="133-les-types-enum-dans-lentit%C3%A9-carentity">1.3.3 Les types enum dans l'entité <code>CarEntity</code></h4>
+<p>Maintenant que nous avons compris comment fonctionnent les types enum en JPA, nous pouvons déclarer les attributs <code>powerType</code>
+et <code>weightType</code>.</p>
+<p>Comme énoncé précédemment, l'attribut <code>powerType</code> est de type integer dans la BD.
+Nous devons donc le déclarer en <code>EnumType.ORDINAL</code>, ce qui donne :</p>
+<pre class="hljs"><code><div><span class="hljs-meta">@Column</span>(name = <span class="hljs-string">"power_type"</span>)
+<span class="hljs-meta">@Enumerated</span>(EnumType.ORDINAL)
+<span class="hljs-keyword">private</span> PowerType powerType;
+</div></code></pre>
+<p>Attention : n'oubliez pas le <code>@Column</code></p>
+<p>Ensuite, nous pouvons déclarer l'attribut <code>weightType</code>, une chaine de caractère en BD.
+Contrairement à l'attribut <code>powerType</code>, nous devons le déclarer en <code>EnumType.STRING</code> :</p>
+<pre class="hljs"><code><div><span class="hljs-meta">@Column</span>(name= <span class="hljs-string">"weight_unity"</span>)
+<span class="hljs-meta">@Enumerated</span>(EnumType.STRING)
+<span class="hljs-keyword">private</span> WeightUnity weightUnity;
+</div></code></pre>
+<h4 id="141-id">1.4.1 @Id</h4>
+<p>L'annotation <code>@Id</code> permet de dire à JPA que l'attribut qui a cette annotation représente la clé primaire en BD.</p>
+<p>Donc dans notre cas, nous devons ajouter :</p>
+<pre class="hljs"><code><div><span class="hljs-meta">@Entity</span>
+<span class="hljs-meta">@Table</span>(name=<span class="hljs-string">"car_porshe"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CarEntity</span></span>{
+    <span class="hljs-meta">@Id</span>
+    <span class="hljs-meta">@Column</span>(name = <span class="hljs-string">"immat"</span>,length = <span class="hljs-number">8</span>)
+    <span class="hljs-keyword">private</span> String immatriculation;
+}
+</div></code></pre>
+<h3 id="15-%C3%A0-votre-tour">1.5  À votre tour</h3>
+<p>Maintenant que vous savez définir une entité, à vous de créer l'entité <code>BikeEntity</code> adaptée au modèle ci-dessous :</p>
+<h3 id="16-valider-votre-impl%C3%A9mentation">1.6 Valider votre implémentation</h3>
+<p>JPA nous permet de valider si nos entités correspondent à la réalité physique en base de données.
+Pour lui permettre cela, nous renseignons la propriété suivante :</p>
+<ul>
+<li><code>spring.jpa.hibernate.ddl-auto</code> et lui donnons la valeur <code>validate</code></li>
+</ul>
+<p>dans le fichier <a href="server/src/main/resources/application.yml">application.yml</a></p>
+<h4 id="17-lancer-la-commande">1.7 lancer la commande</h4>
+<p>Pour voir si votre implémentation est correcte, vous devez démarrer le serveur web qui execute JPA (le framework <code>Spring</code> dont nous parlerons dans un cours et TP ultérieurement).</p>
+<pre class="hljs"><code><div>mvn test
+</div></code></pre>
+<p>Ou alors lancer la classe de test <a href="server/src/test/java/fr/uga/l3miage/tp1/exo1/TestExo1.java">TestExo1.java</a></p>
+<h2 id="2-d%C3%A9finition-dune-entit%C3%A9-qui-nexiste-pas-en-bd">2 Définition d'une entité qui n'existe pas en BD</h2>
+<p>L'un des avantages majeur de JPA, c'est qu'il nous permet également de créer le schéma que l'on implémente directement en BD. A son démarrage, il va analyser les entités existantes et va ensuite créer un DDL (Data Definition Langage) et l'exécuter.</p>
+<p>Dans cette partie du TP, nous allons observer comment JPA crée les entités lorsqu'elles sont scannées.</p>
+<h3 id="21-setup-jpa">2.1 Setup JPA</h3>
+<p>Comme énoncé plus haut, pour que JPA puisse créer directement nos tables en fonction des entités, nous devons changer la propriété suivante :</p>
+<ul>
+<li><code>spring.jpa.hibernate.ddl-auto</code> et lui donner la valeur <code>create-drop</code>
+dans le fichier <a href="server/src/main/resources/application.yml">application.yml</a></li>
+</ul>
+<h4 id="note">Note :</h4>
+<ul>
+<li>
+<p>Pour la valeur <code>spring.jpa.hibernate.ddl-auto</code>, 5 modes sont possibles :</p>
+<p>|    mode     |                                                   fonction                                                   |
+|:-----------<img class="emoji" alt="neutral_face" src="data:image/png;base64,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" />:------------------------------------------------------------------------------------------------------------<img class="emoji" alt="neutral_face" src="data:image/png;base64,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" />
+|   create    |              Permet de créer le schéma détecté en base de donnés au démarrage du serveur spring              |
+| create-drop | Même action que create, et il va en plus supprimer toutes les tables en BD lors de l'arrêt du serveur Spring |
+|   update    |  Fait une comparaison entre le modèle JPA et le modèles physique et applique les modifications nécessaires   |
+|  validate   |                    Permet de valider si le modèle JPA correspond au modèle physique en BD                    |
+|    none     |                                                 Ne fait rien                                                 |</p>
+</li>
+</ul>
+<h3 id="22-ajout-dune-nouvelle-classe">2.2 Ajout d'une nouvelle classe</h3>
+<p>Ajoutez ces nouvelles classe dans le package <code>fr.uga.l3miage.tp1.exo1.models</code> :</p>
+<p>⚠️ ne les modifiez pas, c'est important !</p>
+<pre class="hljs"><code><div><span class="hljs-meta">@Entity</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassTestJPA</span> </span>{
+    <span class="hljs-meta">@Id</span>
+    <span class="hljs-keyword">private</span> String myIdTest;
+
+    <span class="hljs-keyword">private</span> Double jpaSeed;
+
+    <span class="hljs-keyword">private</span> LocalDate savedAt;
+
+    <span class="hljs-keyword">private</span> PowerType powerType;
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-meta">@Entity</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassTestJPATwo</span> </span>{
+    <span class="hljs-meta">@Id</span>
+    <span class="hljs-keyword">private</span> String myIdTest;
+
+    <span class="hljs-meta">@Column</span>(unique)
+    <span class="hljs-keyword">private</span> String testName;
+
+    <span class="hljs-meta">@Column</span>(precision = <span class="hljs-number">1</span>)
+    <span class="hljs-keyword">private</span> Double jpaSeed;
+
+    <span class="hljs-meta">@Column</span>()
+    <span class="hljs-keyword">private</span> Date savedAt;
+}
+</div></code></pre>
+<h3 id="23-cr%C3%A9er-les-classes">2.3 Créer les classes</h3>
+<p>Pour cela, rien de plus simple, il vous suffit de démarrer le serveur Spring. En effet, puisque vous avez changé la propriété <code>spring.jpa.hibernate.ddl-auto</code> à <code>create-drop</code>, JPA va s'en charger pour vous.</p>
+<h4 id="231-lancer-via-intellij">2.3.1 Lancer via Intellij</h4>
+<ul>
+<li>Démarrer la class <code>Tp1Exo1SpringApplication</code>
+<img src="file:///mnt/c/Users/kanikisenci/Desktop/miage/l3_miage/BaseDon/sprinig_boots/Tp1/doc/img.png" alt="classe main"></li>
+</ul>
+<h4 id="231-lancer-via-cmd">2.3.1 Lancer via CMD</h4>
+<pre class="hljs"><code><div>mvn clean install
+java -jar target/TP1 BDD.jar
+</div></code></pre>
+<h3 id="24-voir-l%C3%A9tat-de-votre-bd">2.4 Voir l'état de votre BD</h3>
+<p>Pour cela, référez-vous à la doc des <a href="prerequis.md">prérequis</a> et allez voir sur <code>pgAdmin</code> votre BD</p>
+<h3 id="2-questions">2. Questions</h3>
+<ol>
+<li>Décrivez ce que vous observez en base de données lorsque l'on déclare une classe comme <code>ClassTestJPA</code> ?</li>
+<li>Quels sont les effets des propriétés ajoutées dans les @Column dans la classe <code>ClassTestJPATwo</code> ?</li>
+<li>À votre avis, dans quels cas est-il nécessaire de mettre les annotations <code>@Column</code> ?</li>
+</ol>
+<hr>
+<h1 id="div-style%22text-align-center%22fin-de-lexo-1div"><div style="text-align: center;">Fin de l'exo 1</div></h1>
+
+</body>
+</html>
