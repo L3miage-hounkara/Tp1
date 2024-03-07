@@ -34,7 +34,7 @@ password: root
 2) Remplir avec les informations suivantes :
    ```yml
    host: localhost
-   port: 5432
+   port: 
    username: postgres
    password: postgres
    ```

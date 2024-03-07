@@ -36,4 +36,5 @@ public class BikeEntity {
     @Enumerated(EnumType.ORDINAL)
     private Integer shifterType;
 
+
 }
