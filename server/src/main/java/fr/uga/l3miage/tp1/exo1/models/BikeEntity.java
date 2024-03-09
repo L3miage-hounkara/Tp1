@@ -1,5 +1,8 @@
 package fr.uga.l3miage.tp1.exo1.models;
 
+import fr.uga.l3miage.tp1.exo1.CylinderNumber;
+import fr.uga.l3miage.tp1.exo1.ShifterType;
+
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -27,14 +30,14 @@ public class BikeEntity {
 
     @Column(name = "cylinder_number",length = 255)
     @Enumerated(EnumType.STRING)
-    private String cylinderNumber;
+    private CylinderNumber cylinderNumber;
 
     @Column(name = "have_shifter")
     private boolean haveShifter;
 
     @Column(name = "shifter_type")
     @Enumerated(EnumType.ORDINAL)
-    private Integer shifterType;
-
+    private ShifterType shifterType;
 
 }
+
