@@ -45,13 +45,5 @@ public class CarEntity {
 
     
 
-    public void setId(String immatriculation) {
-        this.immatriculation = immatriculation;
-    }
-
-    public String getId() {
-        return immatriculation;
-    }
-
     
 }
