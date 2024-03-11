@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *     <li>{@link SpringBootApplication} permet de dire à spring que cette classe est le run de l'application</li>
  * </ul>
  */
-@SpringBootApplication
 public class Tp1Exo2SpringApplication {
 
     public static void main(String[] args) {

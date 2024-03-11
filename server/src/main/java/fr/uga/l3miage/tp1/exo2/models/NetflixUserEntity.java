@@ -2,11 +2,9 @@ package fr.uga.l3miage.tp1.exo2.models;
 
 import main.java.fr.uga.l3miage.tp1.exo2.sex;
 
-import javax.ejb.Local;
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.time.LocalDate;
-import main.java.fr.uga.l3miage.tp1.exo2.models.NetflixAccountEntity;
 @Entity
 public class NetflixUserEntity {
     @Id

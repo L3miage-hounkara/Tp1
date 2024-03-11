@@ -1,7 +1,6 @@
 package fr.uga.l3miage.tp1.exo2.models;
 
 
-import fr.uga.l3miage.tp1.exo2.models.NetflixUserEntity;
 
 import javax.persistence.*;
 import java.math.BigInteger;
