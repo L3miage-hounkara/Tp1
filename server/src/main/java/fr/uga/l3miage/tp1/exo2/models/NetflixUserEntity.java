@@ -1,6 +1,6 @@
 package fr.uga.l3miage.tp1.exo2.models;
 
-import main.java.fr.uga.l3miage.tp1.exo2.sex;
+import fr.uga.l3miage.tp1.exo2.enums.sex;
 
 import javax.persistence.*;
 import java.math.BigInteger;
@@ -30,7 +30,6 @@ public class NetflixUserEntity {
 
 
     @OneToOne
-    @JoinColumn(name = "account_id")
     private NetflixAccountEntity netflixAccount;
 
 }

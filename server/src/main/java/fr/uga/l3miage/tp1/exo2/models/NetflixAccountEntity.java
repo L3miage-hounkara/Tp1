@@ -20,11 +20,9 @@ public class NetflixAccountEntity {
     private String typeAccount;
 
 
-    @Column(name = "uuid_user")
-    private String uuidUser;
-
     @OneToOne(mappedBy = "netflixAccount")
-    private NetflixUserEntity netflixUser;
+    private NetflixUserEntity uuidUser;
+
 
 
 }
