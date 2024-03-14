@@ -4,6 +4,7 @@ package fr.uga.l3miage.tp1.exo3.models;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class ProductEntity {
@@ -16,5 +17,9 @@ public class ProductEntity {
 
     @Column(name = "consumable")
     private boolean consumable;
+
+
+    @OneToMany(mappedBy = "productEentity")
+    private List<BrandEntity> brandEntity;
 
 }

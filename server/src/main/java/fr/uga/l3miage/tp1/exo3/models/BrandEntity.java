@@ -17,4 +17,7 @@ public class BrandEntity {
     @Column(name = "type")
     @Enumerated(EnumType.STRING)
     private BrandType type;
+
+    @ManyToOne
+    private ProductEntity productEntity;
 }
