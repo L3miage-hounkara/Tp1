@@ -1,0 +1,5 @@
+1:Lorsque vous déclarez une classe comme ClassTestJPA, une table portant le même nom est créée dans la base de données. Cela signifie que chaque instance de cette classe sera représentée en tant que ligne dans cette table.
+
+2:Les propriétés ajoutées dans les annotations @Column de la classe ClassTestJPATwo affectent les colonnes des tables associées aux champs correspondants dans la base de données. Ces propriétés permettent de spécifier diverses configurations telles que le nom de la colonne, la précision pour les nombres flottants, ou encore l'unicité des valeurs pour cette colonne.
+
+3:Les annotations @Column sont nécessaires dans les cas où les contraintes ou configurations par défaut ne suffisent pas, et où vous avez besoin de spécifier des paramètres supplémentaires pour la colonne associée au champ dans la base de données. Cela peut inclure la spécification d'un nom de colonne personnalisé, la définition de la précision pour les nombres décimaux, l'indication de l'unicité des valeurs, etc.
