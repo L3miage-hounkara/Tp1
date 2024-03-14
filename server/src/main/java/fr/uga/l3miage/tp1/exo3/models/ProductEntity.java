@@ -20,6 +20,6 @@ public class ProductEntity {
 
 
     @OneToMany(mappedBy = "productEentity")
-    private List<BrandEntity> brandEntity;
+    private List<BrandMiage> brandEntity;
 
 }
